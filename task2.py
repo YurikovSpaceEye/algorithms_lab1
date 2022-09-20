@@ -1,7 +1,5 @@
 import copy
 
-import numpy as np
-
 def check_if_matrix(matrix):
     try:
         first_size = len(matrix[0])
@@ -89,6 +87,7 @@ def matrix_swap(matrix, row1, row2, col):
         matrix[row1][i] = matrix[row2][i]
         matrix[row2][i] = temp
 
+#https://www.geeksforgeeks.org/program-for-rank-of-matrix/
 def matrix_find_rank(matrix):
     a = copy.deepcopy(matrix)
     r, c = get_size(a)
@@ -135,8 +134,3 @@ if __name__ == "__main__":
     display_matrix(matrix7)
 
     print(matrix_find_rank(matrix4))
-
-
-    matrix__ = [[10, 20, 10], [20, 40, 20], [30, 50, 0]]
-    print(matrix_find_rank(matrix__))
-    print(matrix_find_rank([[10, 20, 10], [-20, -30, 10], [30, 50, 0]]))
