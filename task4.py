@@ -83,5 +83,5 @@ if __name__ == "__main__":
     import timeit
     import numpy as np
 
-    print(timeit.repeat("test_py()", globals=globals(), number=10000))
-    print(timeit.repeat("test_np()", globals=globals(), number=10000))
+    print(timeit.repeat("test_py()", globals=globals(), number=10000, repeat=5))
+    print(timeit.repeat("test_np()", globals=globals(), number=10000, repeat=5))

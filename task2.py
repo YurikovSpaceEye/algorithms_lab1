@@ -1,32 +1,11 @@
 import copy
 
-def check_if_matrix(matrix):
-    try:
-        first_size = len(matrix[0])
-        for element in matrix:
-            if (len(element) != first_size):
-                return False
-        return True
-    except:
-        for element in matrix:
-            if not (type(element) == int or type(element) == float):
-                return False
-        return True
-
 def get_size(matrix):
-    if not check_if_matrix(matrix):
-        raise Exception("Не матрица")
-
-    try:
         return (len(matrix), len(matrix[0]))
-    except:
-        return (len(matrix), 0)
 
 
 def transpose_matrix(matrix):
     width, height = get_size(matrix)
-    if (height == 0):
-        return matrix
 
     new_matrix = [[0 for i in range(width)] for i in range(height)]
 
@@ -70,12 +49,12 @@ def matrix_multiply(matrix1, matrix2):
 
     new_matrix = [[0 for i in range(height2)] for i in range(width1)]
 
-    matrix2 = transpose_matrix(matrix2)
+    matrix2_t = transpose_matrix(matrix2)
 
     for x in range(width1):
         row = matrix1[x]
         for y in range(height2):
-            col = matrix2[y]
+            col = matrix2_t[y]
 
             new_matrix[x][y] = sum(elementwise_mult(row, col))
 
@@ -112,7 +91,7 @@ def matrix_find_rank(matrix):
 
             if reduce:
                 rank -= 1
-                for i  in range(0, r, 1):
+                for i in range(0, r, 1):
                     a[i][row] = a[i][rank]
 
             row -= 1

@@ -4,7 +4,7 @@ def transpose_matrix(matrix: np.matrix):
     return matrix.transpose([1, 0])
 
 def matrix_multiply(matrix1: np.matrix, matrix2: np.matrix):
-    return matrix1 * matrix2
+    return np.dot(matrix1, matrix2)
 
 def matrix_find_rank(matrix: np.matrix):
     return np.linalg.matrix_rank(matrix)
